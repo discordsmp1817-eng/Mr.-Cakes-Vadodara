@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+:root {
+  --bg-cream: #FFF8F0;
+  --bg-vanilla: #F4E9DA;
+  --text-espresso: #35221B;
+  --text-taupe: #80695C;
+  --accent-gold: #C58A4A;
+  --accent-chocolate: #603B2B;
+  --surface-ivory: #FFFFFF;
+  --surface-warm: #FFFDF9;
+  --border-hairline: rgba(53, 34, 27, 0.11);
+  --shadow-soft: 0 12px 32px -12px rgba(53, 34, 27, 0.10);
+  --shadow-elevated: 0 22px 48px -16px rgba(53, 34, 27, 0.16);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius-card: 1rem;
+  --radius-media: 0.75rem;
+}
+
+@layer base {
+  html {
+    background-color: var(--bg-cream);
+    color: var(--text-espresso);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--bg-cream);
+    color: var(--text-espresso);
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  button:not(:disabled),
+  a[href] {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans-ui {
+  font-family: var(--font-sans);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Smooth bakery section divider */
+.editorial-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(197, 138, 74, 0.35) 25%,
+    rgba(96, 59, 43, 0.22) 50%,
+    rgba(197, 138, 74, 0.35) 75%,
+    transparent 100%
+  );
+}
+
+/* Soft arch mask for signature hero and story visuals */
+.arch-frame {
+  border-radius: 14rem 14rem 1.25rem 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .arch-frame {
+    border-radius: 7rem 7rem 1rem 1rem;
+  }
+}
+
+/* Subtle card surface glow hover */
+.bakery-card {
+  background-color: var(--surface-warm);
+  border: 1px solid var(--border-hairline);
+  box-shadow: var(--shadow-soft);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bakery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+  border-color: rgba(197, 138, 74, 0.38);
+}
+
+/* Custom button motion */
+.btn-chocolate {
+  background-color: var(--accent-chocolate);
+  color: var(--bg-cream);
+  transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-chocolate:hover {
+  background-color: var(--text-espresso);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px -8px rgba(53, 34, 27, 0.35);
+}
+
+.btn-chocolate:active {
+  transform: translateY(0);
+}
+
+.btn-outline-espresso {
+  border: 1px solid rgba(53, 34, 27, 0.25);
+  color: var(--text-espresso);
+  background-color: transparent;
+  transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline-espresso:hover {
+  background-color: rgba(197, 138, 74, 0.10);
+  border-color: var(--accent-chocolate);
+  transform: translateY(-1px);
+}
+
+/* Subtle floating keyframes */
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentleFloat 5.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-gentle-float {
+    animation: none !important;
+  }
+  .bakery-card,
+  .btn-chocolate,
+  .btn-outline-espresso {
+    transition: none !important;
+  }
+}

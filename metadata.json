@@ -1,0 +1,6 @@
+{
+  "name": "Mr. Cakes Vadodara",
+  "description": "Artisanal celebration cakes, designer creations, and handcrafted desserts on New VIP Road, Vadodara. Rated 4.9/5 by 518 customers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
