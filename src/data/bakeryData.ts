@@ -1,3 +1,5 @@
+import type { CakeImageKey } from './cakeImages';
+
 export type CakeMenuCategory =
   | 'All Cakes'
   | 'Chocolate Cakes'
@@ -68,19 +70,19 @@ export const BUSINESS_INFO = {
     'https://maps.google.com/maps?q=Siddheshwar%20Plaza%2C%20New%20VIP%20Road%2C%20Vadodara%2C%20Gujarat%20390019&t=&z=16&ie=UTF8&iwloc=&output=embed',
 } as const;
 
-export const IMAGES = {
-  heroSignature: '/src/assets/images/hero_signature_cake_1794667076902.jpg',
-  belgianChocolate: '/src/assets/images/cake_belgian_chocolate_1794667076205.jpg',
-  blackForest: '/src/assets/images/cake_black_forest_1794667076763.jpg',
-  redVelvet: '/src/assets/images/cake_red_velvet_1794667077230.jpg',
-  butterscotch: '/src/assets/images/cake_butterscotch_1794667077595.jpg',
-  pineapple: '/src/assets/images/cake_pineapple_1794667076899.jpg',
-  strawberry: '/src/assets/images/cake_strawberry_1794667078173.jpg',
-  designerTiered: '/src/assets/images/cake_designer_tiered_1794667077947.jpg',
-  anniversaryFloral: '/src/assets/images/cake_anniversary_floral_1794667077834.jpg',
-  pastries: '/src/assets/images/pastries_assortment_1794667079064.jpg',
-  craftStory: '/src/assets/images/bakery_craft_story_1794667080371.jpg',
-  birthdayCelebration: '/src/assets/images/birthday_celebration_cake_1794667080013.jpg',
+export const IMAGES: Record<CakeImageKey, CakeImageKey> = {
+  heroSignature: 'heroSignature',
+  belgianChocolate: 'belgianChocolate',
+  blackForest: 'blackForest',
+  redVelvet: 'redVelvet',
+  butterscotch: 'butterscotch',
+  pineapple: 'pineapple',
+  strawberry: 'strawberry',
+  designerTiered: 'designerTiered',
+  anniversaryFloral: 'anniversaryFloral',
+  pastries: 'pastries',
+  craftStory: 'craftStory',
+  birthdayCelebration: 'birthdayCelebration',
 } as const;
 
 export const FEATURED_CATEGORIES: FeaturedCategoryCard[] = [

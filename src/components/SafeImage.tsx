@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CakeSlice } from 'lucide-react';
+import { CAKE_IMAGES, type CakeImageKey } from '../data/cakeImages';
 
 interface SafeImageProps {
   src: string;
@@ -16,7 +17,12 @@ export function SafeImage({
   loading = 'lazy',
   fallbackTitle,
 }: SafeImageProps) {
+  const resolvedSrc = src in CAKE_IMAGES ? CAKE_IMAGES[src as CakeImageKey] : src;
   const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    setHasError(false);
+  }, [resolvedSrc]);
 
   if (hasError) {
     return (
@@ -35,7 +41,7 @@ export function SafeImage({
 
   return (
     <img
-      src={src}
+      src={resolvedSrc}
       alt={alt}
       loading={loading}
       referrerPolicy="no-referrer"
